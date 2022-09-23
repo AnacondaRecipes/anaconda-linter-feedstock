@@ -1,11 +1,16 @@
+{% set version = "0.0.1" %}
+
 package:
   name: anaconda-linter
-  version: 0.0.1
+  version: {{ version }}
+
 source:
-  git_url: ../
+  git_url: https://github.com/anaconda-distribution/anaconda-linter.git
+
 build:
   number: 0
   script: {{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv
+
 requirements:
   host:
     - python
@@ -21,6 +26,7 @@ requirements:
     - conda-build
     - jsonschema
     - networkx
+
 test:
   source_files:
     - tests
