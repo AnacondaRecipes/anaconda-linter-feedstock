@@ -5,7 +5,9 @@ package:
   version: {{ version }}
 
 source:
-  git_url: git@github.com:anaconda-distribution/anaconda-linter.git
+  fn: anaconda-linter-{{ version }}.tar.gz
+  url: https://github.com/anaconda-distribution/anaconda-linter/archive/{{ version }}.tar.gz
+  sha256: c0004740a8ca22041ca284e486d228c12577bc4f51de4f2e5f4b36509dec4764
 
 build:
   number: 0
