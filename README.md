@@ -8,3 +8,4 @@ Package license: [BSD-3-Clause](https://opensource.org/licenses/BSD-3-Clause)
 Feedstock license: [BSD-3-Clause](https://opensource.org/licenses/BSD-3-Clause)
 
 Summary: Linter for conda feedstocks
+
