@@ -5,7 +5,7 @@ package:
   version: {{ version }}
 
 source:
-  git_url: https://github.com/anaconda-distribution/anaconda-linter.git
+  git_url: git@github.com:anaconda-distribution/anaconda-linter.git
 
 build:
   number: 0
