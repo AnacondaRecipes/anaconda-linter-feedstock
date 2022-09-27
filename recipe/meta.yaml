@@ -1,0 +1,56 @@
+{% set version = "0.0.1" %}
+
+package:
+  name: anaconda-linter
+  version: {{ version }}
+
+source:
+  fn: anaconda-linter-{{ version }}.tar.gz
+  url: https://github.com/anaconda-distribution/anaconda-linter/archive/{{ version }}.tar.gz
+  sha256: c0004740a8ca22041ca284e486d228c12577bc4f51de4f2e5f4b36509dec4764
+
+build:
+  number: 0
+  skip: True  # [py<38]
+  script: {{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv
+  entry_points:
+    - conda-lint = anaconda_linter.run:main
+
+requirements:
+  host:
+    - python
+    - pip
+    - setuptools
+  run:
+    - python
+    - ruamel.yaml
+    - pyyaml
+    - license-expression
+    - jinja2
+    - tqdm
+    - conda-build
+    - jsonschema
+    - networkx
+
+test:
+  source_files:
+    - tests
+  requires:
+    - pytest
+    - pytest-cov
+    - pytest-html
+  commands:
+    - python -m pytest -vv tests
+
+about:
+  home: https://github.com/anaconda-distribution/anaconda-linter
+  license: BSD-3-Clause
+  license_family: BSD
+  license_file: LICENSE
+  license_url: https://opensource.org/licenses/BSD-3-Clause
+  summary: A conda feedstock linter written in pure Python.
+  description: |
+    Runs a range of static checks on conda feedstocks. Under
+    ongoing development. 
+  doc_url: https://github.com/anaconda-distribution/anaconda-linter/blob/main/README.md
+  dev_url: https://github.com/anaconda-distribution/anaconda-linter 
