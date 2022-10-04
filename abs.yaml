@@ -1,2 +1,6 @@
 channels:
     mesters_org: anaconda-linter
+build_parameters:
+  - "--suppress-variables"
+  - "--error-overlinking"
+  - "--error-overdepending"
