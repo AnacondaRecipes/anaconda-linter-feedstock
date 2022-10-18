@@ -1,4 +1,4 @@
-{% set version = "0.0.2" %}
+{% set version = "0.0.3" %}
 
 package:
   name: anaconda-linter
@@ -7,7 +7,7 @@ package:
 source:
   fn: anaconda-linter-{{ version }}.tar.gz
   url: https://github.com/anaconda-distribution/anaconda-linter/archive/{{ version }}.tar.gz
-  sha256: e5c9f0c4fa1d9af37945fd304b7155a46d912e092434266978071092a3fe08cb
+  sha256: b0c1815e2d39094c815b421bab914de55a2fa1001043a7910e58aa87f9435e91
 
 build:
   number: 0
@@ -31,6 +31,7 @@ requirements:
     - conda-build
     - jsonschema
     - networkx
+    - git  # to be removed - this covers obsolete skip-lint functionality
 
 test:
   source_files:
