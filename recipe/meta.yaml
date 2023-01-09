@@ -1,4 +1,4 @@
-{% set version = "0.0.3" %}
+{% set version = "0.0.4" %}
 
 package:
   name: anaconda-linter
@@ -7,7 +7,7 @@ package:
 source:
   fn: anaconda-linter-{{ version }}.tar.gz
   url: https://github.com/anaconda-distribution/anaconda-linter/archive/{{ version }}.tar.gz
-  sha256: b0c1815e2d39094c815b421bab914de55a2fa1001043a7910e58aa87f9435e91
+  sha256: b49fe3fb156205fb0de630b5e0b8ea6e0cd91a9f06dfdbc9a9d45f50c91125da
 
 build:
   number: 0
@@ -21,37 +21,44 @@ requirements:
     - python
     - pip
     - setuptools
+    - wheel
   run:
     - python
+    - requests
     - ruamel.yaml
-    - pyyaml
     - license-expression
     - jinja2
-    - tqdm
     - conda-build
     - jsonschema
     - networkx
-    - git  # to be removed - this covers obsolete skip-lint functionality
 
 test:
   source_files:
     - tests
   requires:
+    - pip
     - pytest
-    - pytest-cov
-    - pytest-html
+  imports:
+    - anaconda_linter
   commands:
-    - python -m pytest -vv tests
+    - pip check
+    # pytest fails when called directly from the conda test environment,
+    # but not when inside the tests directory
+    # lint_list is only an important test for development
+    - cd tests && python -m pytest . -k 'not lint_list'
 
 about:
   home: https://github.com/anaconda-distribution/anaconda-linter
   license: BSD-3-Clause
   license_family: BSD
   license_file: LICENSE
-  license_url: https://opensource.org/licenses/BSD-3-Clause
   summary: A conda feedstock linter written in pure Python.
   description: |
     Runs a range of static checks on conda feedstocks. Under
-    ongoing development. 
+    ongoing development.
   doc_url: https://github.com/anaconda-distribution/anaconda-linter/blob/main/README.md
-  dev_url: https://github.com/anaconda-distribution/anaconda-linter 
+  dev_url: https://github.com/anaconda-distribution/anaconda-linter
+
+extra:
+  recipe-maintainers:
+    - marcoesters
