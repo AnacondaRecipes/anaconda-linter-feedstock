@@ -7,7 +7,7 @@ package:
 source:
   fn: anaconda-linter-{{ version }}.tar.gz
   url: https://github.com/anaconda-distribution/anaconda-linter/archive/{{ version }}.tar.gz
-  sha256: 8a3861873b2867476e872323fe0998ee415e9b1ac5553318c50e030576de6b14
+  sha256: 9bdf308f19741cb0d5f7c18fb807b6c4f81a74b7e6fb242a4fd231cb9afef66f
 
 build:
   number: 0
