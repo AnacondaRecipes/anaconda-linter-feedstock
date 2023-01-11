@@ -40,6 +40,7 @@ test:
     - pytest
   imports:
     - anaconda_linter
+    - anaconda_linter.lint
   commands:
     - pip check
     # lint_list is only an important test for development
