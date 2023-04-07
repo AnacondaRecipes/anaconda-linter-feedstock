@@ -1,4 +1,4 @@
-{% set version = "0.0.4" %}
+{% set version = "0.0.5" %}
 
 package:
   name: anaconda-linter
@@ -7,12 +7,12 @@ package:
 source:
   fn: anaconda-linter-{{ version }}.tar.gz
   url: https://github.com/anaconda-distribution/anaconda-linter/archive/{{ version }}.tar.gz
-  sha256: 9bdf308f19741cb0d5f7c18fb807b6c4f81a74b7e6fb242a4fd231cb9afef66f
+  sha256: 157e7a28a81a56c871c420af674bc83bf21039637511a134e9059e7e99d47760
 
 build:
   number: 0
   skip: True  # [py<38]
-  script: {{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv
+  script: {{ PYTHON }} -m pip install . --no-deps --no-build-isolation --ignore-installed --no-cache-dir -vvv
   entry_points:
     - conda-lint = anaconda_linter.run:main
 
