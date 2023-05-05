@@ -8,15 +8,21 @@ source:
   fn: anaconda-linter-{{ version }}.tar.gz
   url: https://github.com/anaconda-distribution/anaconda-linter/archive/{{ version }}.tar.gz
   sha256: 157e7a28a81a56c871c420af674bc83bf21039637511a134e9059e7e99d47760
+  patches:
+    # https://github.com/anaconda-distribution/anaconda-linter/pull/226
+    - 0001-prohibit-license-family-none.patch
 
 build:
-  number: 0
+  number: 1
   skip: True  # [py<38]
   script: {{ PYTHON }} -m pip install . --no-deps --no-build-isolation --ignore-installed --no-cache-dir -vvv
   entry_points:
     - conda-lint = anaconda_linter.run:main
 
 requirements:
+  build:
+    - patch  # [not win]
+    - m2-patch  # [win]
   host:
     - python
     - pip
