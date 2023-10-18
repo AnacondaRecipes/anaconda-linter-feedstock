@@ -1,4 +1,4 @@
-{% set version = "0.1.0" %}
+{% set version = "0.1.1" %}
 
 package:
   name: anaconda-linter
@@ -7,11 +7,11 @@ package:
 source:
   fn: anaconda-linter-{{ version }}.tar.gz
   url: https://github.com/anaconda-distribution/anaconda-linter/archive/{{ version }}.tar.gz
-  sha256: ee9499e973e720e95052056752d40e45c0d8f5b87e3a2bd6564146063e02d07a
+  sha256: 5954aa3793c8bebb1e5fcf251ff7207f39ecc0ad563c587b342c82a2658ea69b
 
 build:
   number: 0
-  skip: True  # [py<38]
+  skip: True  # [py<39]
   script: {{ PYTHON }} -m pip install . --no-deps --no-build-isolation --ignore-installed --no-cache-dir -vvv
   entry_points:
     - conda-lint = anaconda_linter.run:main
@@ -32,7 +32,7 @@ requirements:
     - conda-build
     - jsonschema
     - networkx
-    - percy ==0.0.5
+    - percy >=0.1.0,<0.2.0
 
 test:
   source_files:
