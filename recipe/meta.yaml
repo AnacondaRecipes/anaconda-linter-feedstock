@@ -10,7 +10,7 @@ source:
   sha256: b42afa8558fc4e06fa8a216bf5952bf5ce15d688c871748787746d3d28727a25
 
 build:
-  number: 0
+  number: 1
   skip: True  # [py<39]
   script: {{ PYTHON }} -m pip install . --no-deps --no-build-isolation --ignore-installed --no-cache-dir -vvv
   entry_points:
@@ -29,6 +29,7 @@ requirements:
     - ruamel.yaml
     - license-expression
     - jinja2
+    - py-lief  # Added to resolve bug in conda-build 3.28.0
     - conda-build
     - jsonschema
     - networkx
