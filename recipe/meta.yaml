@@ -7,7 +7,7 @@ package:
 source:
   fn: anaconda-linter-{{ version }}.tar.gz
   url: https://github.com/anaconda-distribution/anaconda-linter/archive/{{ version }}.tar.gz
-  sha256: a4ccf8064a39b422f7862a9989aa1b766d0e5257fab96dbd490c9a3cc0e55be9
+  sha256: 81e96fd246496b653cf7eff0d2e87e488c176e3be870d51fee8d23b4a3386efb
 
 build:
   number: 0
@@ -24,7 +24,7 @@ requirements:
     - setuptools
     - wheel
   run:
-    - python
+    - python >=3.11
     - requests
     - ruamel.yaml
     - license-expression
@@ -32,7 +32,7 @@ requirements:
     - conda-build
     - jsonschema
     - networkx
-    - percy >=0.1.1,<0.2.0
+    - percy >=0.1.3
 
 test:
   source_files:
