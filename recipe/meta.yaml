@@ -11,8 +11,8 @@ source:
 
 build:
   number: 0
-  skip: True  # [py<39]
-  script: {{ PYTHON }} -m pip install . --no-deps --no-build-isolation --ignore-installed --no-cache-dir -vvv
+  noarch: python
+  script: pip install . --no-deps --no-build-isolation -vv
   entry_points:
     - conda-lint = anaconda_linter.run:main
     - anaconda-lint = anaconda_linter.run:main
