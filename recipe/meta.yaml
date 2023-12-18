@@ -1,4 +1,4 @@
-{% set version = "0.1.2" %}
+{% set version = "0.1.3" %}
 
 package:
   name: anaconda-linter
@@ -7,12 +7,12 @@ package:
 source:
   fn: anaconda-linter-{{ version }}.tar.gz
   url: https://github.com/anaconda-distribution/anaconda-linter/archive/{{ version }}.tar.gz
-  sha256: b42afa8558fc4e06fa8a216bf5952bf5ce15d688c871748787746d3d28727a25
+  sha256: 81e96fd246496b653cf7eff0d2e87e488c176e3be870d51fee8d23b4a3386efb
 
 build:
-  number: 2
-  skip: True  # [py<39]
-  script: {{ PYTHON }} -m pip install . --no-deps --no-build-isolation --ignore-installed --no-cache-dir -vvv
+  number: 0
+  noarch: python
+  script: pip install . --no-deps --no-build-isolation -vv
   entry_points:
     - conda-lint = anaconda_linter.run:main
     - anaconda-lint = anaconda_linter.run:main
@@ -24,15 +24,15 @@ requirements:
     - setuptools
     - wheel
   run:
-    - python
+    - python >=3.11
     - requests
     - ruamel.yaml
     - license-expression
     - jinja2
-    - conda-build <3.28.0  # Pinned to resolve bug in conda-build 3.28.0
+    - conda-build
     - jsonschema
     - networkx
-    - percy >=0.1.1,<0.2.0
+    - percy >=0.1.3
 
 test:
   source_files:
