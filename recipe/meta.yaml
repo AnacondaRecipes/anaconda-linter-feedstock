@@ -1,4 +1,4 @@
-{% set version = "0.1.4" %}
+{% set version = "0.1.5" %}
 
 package:
   name: anaconda-linter
@@ -7,7 +7,7 @@ package:
 source:
   fn: anaconda-linter-{{ version }}.tar.gz
   url: https://github.com/anaconda-distribution/anaconda-linter/archive/{{ version }}.tar.gz
-  sha256: 0d451ff55003ad168c7722748ac4b89f4a920bc02aa2b8a4406d06df10fe2b47
+  sha256: 3af10c4732b08d364fb914dd05e13863df60243bfeecb0b5a3d63419d14e4f87
 
 build:
   number: 0
