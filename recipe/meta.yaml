@@ -5,7 +5,7 @@ package:
   version: {{ version }}
 
 source:
-  url: https://github.com/anaconda-distribution/anaconda-linter/archive/{{ version }}.tar.gz
+  url: https://github.com/anaconda/anaconda-linter/archive/{{ version }}.tar.gz
   sha256: 341c8666e7760ef666fc146edad9a5ffe56ca08bc72d4f9a28845cc2b0fc8dbc
 
 build:
@@ -52,7 +52,7 @@ test:
     - python -m pytest -n auto tests -k "not lint_list"
 
 about:
-  home: https://github.com/anaconda-distribution/anaconda-linter
+  home: https://github.com/anaconda/anaconda-linter
   license: BSD-3-Clause
   license_family: BSD
   license_file: LICENSE
@@ -60,8 +60,8 @@ about:
   description: |
     Runs a range of static checks on conda feedstocks. Under
     ongoing development.
-  doc_url: https://github.com/anaconda-distribution/anaconda-linter/blob/main/README.md
-  dev_url: https://github.com/anaconda-distribution/anaconda-linter
+  doc_url: https://github.com/anaconda/anaconda-linter/blob/main/README.md
+  dev_url: https://github.com/anaconda/anaconda-linter
 
 extra:
   skip-lints:
