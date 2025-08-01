@@ -64,6 +64,8 @@ about:
   dev_url: https://github.com/anaconda-distribution/anaconda-linter
 
 extra:
+  skip-lints:
+    - avoid_noarch
   recipe-maintainers:
     - marcoesters
     - schuylermartin45
